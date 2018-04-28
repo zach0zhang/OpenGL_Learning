@@ -28,7 +28,8 @@ inline void LoadIdentity44(Matrix44f m)
 
 百度百科中的讲解：[矩阵乘法](https://baike.baidu.com/item/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/5446029?fr=aladdin)
 
-![image](E:/笔记/Opengl/Transformation/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/1.png)
+
 - 首先要明确只有当矩阵A的列数等于矩阵B的行数时，A和B才可以相乘
 - 矩阵C的行数等于矩阵A的行数，C的列数等于B的列数
 - 乘积C的第m行第n列的元素等于矩阵A的第m行的元素与矩阵B的第n列对应元素乘积之和
@@ -71,12 +72,14 @@ inline void MatrixMultiply44(Matrix44f product, const Matrix44f a, const Matrix4
 
 ## 二、平移变换
 平移变换示意图如下：
-![image](E:/笔记/Opengl/Transformation/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/2.png)
 
 我们的任务便是**找到一个矩阵M(称为平移矩阵)，对于给定的点P(x,y,z)和平移向量V(v1,v2,v3)，使得M\*P=P1(x+v1,y+v2,z+v3)**
 
-最后通过种种努力，发现了一个4*4的矩阵可以达到这种效果：
-![image](E:/笔记/Opengl/Transformation/3.png)
+最后通过种种努力，发现了一个4 * 4的矩阵可以达到这种效果：
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/3.png)
+
 - 像这样使用4维向量表示一个三维向量叫做齐次坐标
 - 4维向量的四个分量分别是X、Y、Z、W，之前看到的着色器中的内部变量gl_Position就是一个四维向量
 - 通常表示点的矩阵让W=1,表示向量的矩阵让W=0，因为点可以被做变换而向量不可以
@@ -94,25 +97,31 @@ inline void TranslationMatrix44(Matrix44f m, float x, float y, float z)
 有了刚才平移变换的基础，我们知道了旋转变换其实也就是找到一个旋转矩阵，来与我们位置坐标相乘能得到旋转后的位置坐标
 ### 3.1 推导
 旋转变换示意图如下：
-![image](E:/笔记/Opengl/Transformation/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/4.png)
+
 示意图为从z轴的正方向朝负方向看，从位置1旋转到位置2(即从(x1,y1)到(x2,y2))，如果圆的半径为1(即是单位圆),则可以得到：
-![image](E:/笔记/Opengl/Transformation/5.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/5.png)
 
 再由高中数学三角函数公式可以推导：
-![image](E:/笔记/Opengl/Transformation/6.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/6.png)
 
 此时找到了旋转α度角之后的x,y坐标，此时只需要找到旋转矩阵与原坐标向量相乘等于新的坐标向量即可
 
 ### 3.2 旋转矩阵
 **绕z轴旋转(z轴不变)：**
 
-![image](E:/笔记/Opengl/Transformation/7.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/7.png)
 
 **绕y轴旋转(y轴不变)：**
-![image](E:/笔记/Opengl/Transformation/8.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/8.png)
 
 **绕x轴旋转(x轴不变)：**
-![image](E:/笔记/Opengl/Transformation/9.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/9.png)
 
 代码设置一个旋转矩阵：
 
@@ -155,8 +164,8 @@ inline void RotationMatrix44(Matrix44f m, float RotateX, float RotateY, float Ro
 ```
 ## 四、缩放变换
 缩放变换可以由平移矩阵推导出来
-![image](E:/笔记/Opengl/Transformation/10.png)
-![image](E:/笔记/Opengl/Transformation/11.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/10.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/11.png)
 
 代码设置一个缩放矩阵：
 
@@ -558,5 +567,5 @@ void main()
 片元着色器没有变化，还是让渲染的图形颜色为红
 
 ## 六、运行结果
-![image](E:/笔记/Opengl/Transformation/12.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Translation_Transformation/image/12.png)
 可以看到红色的三角形在x轴的-1到1间来回移动，并且在xy平面上旋转，并且由大变小再由小变大做缩放运动
