@@ -90,4 +90,4 @@ RenderSceneCB回调函数
 
 **运行结果：**
 
-![image](E:\笔记\Opengl\Create a Window\1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Create_a_Window/image/1.png)
