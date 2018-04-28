@@ -26,7 +26,9 @@ a · b= ||a|| * ||b|| * cosφ
 a -> b
 ```
 示意图如下：
-![image](E:/笔记/Opengl/Camera_Space/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/1.png)
+
 则可以推出以下公式：
 
 ```
@@ -62,7 +64,7 @@ a × b = a*b*sinθ
 ```
 ||a × b|| = ||a|| * ||b|| * sinθ 
 ```
-![image](E:/笔记/Opengl/Camera_Space/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/2.png)
 
 三维向量a=(xa,xb,xz),b=(xb,yb,zb)的叉积为
 
@@ -105,7 +107,9 @@ inline void NormalizeVector3(Vector3f u)
 ## 二、UVN相机系统
 ### 2.1 UVN相机系统的概念
 如图所示UVN相机在世界坐标系下的表示：
-![image](E:/笔记/Opengl/Camera_Space/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/3.png)
+
 - N:相机目标朝向的向量
 - V：相机竖直向上的向量
 - U：指向相机右方的向量
@@ -118,19 +122,25 @@ inline void NormalizeVector3(Vector3f u)
 
 #### 2.2.1 相机移动
 相机移动则是把物体向反方向移动例如下图从y轴向负方向看把相机移动到(1,0,0)，又要保持物体位置相对不变的情况下把相机移回原点，则把物体按反方向移动到(-1,0,0):
-![image](E:/笔记/Opengl/Camera_Space/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/4.png)
+
 可以看出如果相机从原点移动到(x,y,z)，相应物体的变换矩阵应该是
-![image](E:/笔记/Opengl/Camera_Space/5.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/5.png)
 
 #### 2.2.2 相机旋转
-![image](E:/笔记/Opengl/Camera_Space/6.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/6.png)
+
 - 通过向量在世界空间中的位置(x,y,z)来获得相机坐标系中的位置(x',y',z')
 - 通过之前学习的数学基础,知道任意向量a在单位向量b上的投影即是a和b的点积
 - 我们做向量(x,y,z)在相机U轴上的单位向量的点积得到的就是x' 其他同理
 
 #### 2.2.3 UVN矩阵
 为了将世界空间中的位置转换到相机空间中用UVN向量定义，则将位置向量和UVN向量进行点积操作
-![image](E:/笔记/Opengl/Camera_Space/7.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/7.png)
 
 UVN在代码中定义：
 
@@ -769,6 +779,6 @@ void main()
 }
 ```
 ## 四、运行结果
-![image](E:/笔记/Opengl/Camera_Space/8.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Space/image/8.png)
 修改相机参数就可以改变我们观察的位置了
 
