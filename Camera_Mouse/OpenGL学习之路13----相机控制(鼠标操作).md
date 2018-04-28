@@ -229,12 +229,16 @@ void Camera::Init()
 }
 ```
 - 可以看到根据target向量的x和z分量来确定m_AngleH(水平倾角)
+
 ![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/5.png)
+
 对z分量反sin之后就可以得到α角，但是我们四元数控制的是顺时针旋转，所以**可以根据target向量的x和z分量的正负来确定是在第几象限**，再判断最终的水平倾角
 
     例如上图，计算出阿尔法角度后，因为x和z都为正所以是第一向量，所以用360°-α得到最终角度
 - 我们规定垂直倾角最大为90°，可以通过target的y分量来得到m_AngleV(垂直倾角)
+
 ![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/6.png)
+
 可以得出垂直倾角即为对y分量反sin后得到的角度再取负(因为四元数旋转是顺时针)
 - 同时初始化的时候设置了其他相机类内新加的私有变量的值
 ```
