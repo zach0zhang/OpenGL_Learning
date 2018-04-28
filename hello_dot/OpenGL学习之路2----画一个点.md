@@ -191,4 +191,4 @@ glDrawArrays(GL_POINTS, 0, 1);
 - 第三个参数是绘制的顶点数，1个顶点所以设置为1
 
 ## 运行结果
-![image](E:/笔记/Opengl/Hello dot/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/hello_dot/image/1.png)
