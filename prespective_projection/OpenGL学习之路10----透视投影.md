@@ -8,26 +8,30 @@
 - 投射线汇交于投射中心的投影法叫做中心投影法
 
 中心投影法示意图：
-![image](E:/笔记/Opengl/Perspective_Projection/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/1.png)
 
 **透视投影是用中心投影法将形体投射到投影面上，从而获得的一种较为接近视觉效果的单面投影图**
 
 透视投影符合人们心理习惯，即离视点近的物体大，离视点远的物体小，远到极点即为消失，成为灭点
 
 透视投影示意图：
-![image](E:/笔记/Opengl/Perspective_Projection/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/2.png)
 
 ### 1.2 视锥体
 当使用投影矩阵，场景中的并行线会在屏幕上的一个消失点处汇聚到一起，物体离得越远，则变得越小。看到的空间区域被称为视椎体。
 
 通过视椎体投影： 
-![image](E:/笔记/Opengl/Perspective_Projection/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/3.png)
 
 ### 1.3 必要的参数
 - **90°视野和45°视野：** 
-![image](E:/笔记/Opengl/Perspective_Projection/5.png)
 
-- **屏幕的宽高比**: 因为我们在一个宽高相等(-1到1)的单位化窗口里展示坐标系,而通常电脑屏幕的宽度是大于高度的(比如1024*768)，所以需要在水平方向上的轴线上步骤更加密集的坐标点，竖直方向上相对稀疏。
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/5.png)
+
+- **屏幕的宽高比**: 因为我们在一个宽高相等(-1到1)的单位化窗口里展示坐标系,而通常电脑屏幕的宽度是大于高度的(比如1024 * 768)，所以需要在水平方向上的轴线上步骤更加密集的坐标点，竖直方向上相对稀疏。
 - **到远处和近处的距离**：需要把离相机太近和太远的物体裁掉
 
 ### 1.4 透视投影矩阵
@@ -40,7 +44,9 @@
 [Perspective Projection](http://ogldev.atspace.co.uk/www/tutorial12/tutorial12.html)
 
 这里直接给出透视投影矩阵并稍作解释
-![image](E:/笔记/Opengl/Perspective_Projection/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/4.png)
+
 - a: 相当于焦距，大小为 1/tan(视野/2)
         
         即当视野为90°，则a=1/tan(90°/2)=1
@@ -131,7 +137,7 @@ public:
 ```
 - 通过对上一节的学习，我们的管线最后目的是获得一个最终想要的变换矩阵作为Uniform变量传递给着色器
 - 这次给管线类增加了我们在opengl_math.h中定义的透视投影配置参数的结构体变量，用来配置管线内中的透视投影矩阵
-- 管线类还增加了两个4*4的矩阵变量，分别代表透视投影矩阵，以及先进行混合变换再进行透视投影操作后的矩阵(即m_Wtransformation * m_ProjTransformation)
+- 管线类还增加了两个4 * 4的矩阵变量，分别代表透视投影矩阵，以及先进行混合变换再进行透视投影操作后的矩阵(即m_Wtransformation * m_ProjTransformation)
 - 两个方法用来计算m_ProjTransformation矩阵和m_WPtransformation矩阵
 
 opengl_pipeline.c:
@@ -621,6 +627,6 @@ void main()
 }
 ```
 ## 四、运行结果
-![image](E:/笔记/Opengl/Perspective_Projection/6.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/prespective_projection/image/6.png)
 
 可以看到一个立体感的四面体绕y轴旋转
