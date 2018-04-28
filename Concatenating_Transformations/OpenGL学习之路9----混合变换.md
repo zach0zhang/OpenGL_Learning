@@ -20,9 +20,13 @@ M_n * M_{n-1} * ... * M_0 * V = (M_n* M_{n-1} * ... * M_0) * V
 首先，我们要明白：**向量最开始先被最右边的矩阵左乘，即按照最右矩阵到最左矩阵顺序进行变换**
 
 一个正方形先旋转再平移如图：
-![image](E:/笔记/Opengl/Concatenating_Transformations/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Concatenating_Transformations/image/1.png)
+
 先平移再旋转如图：
-![image](E:/笔记/Opengl/Concatenating_Transformations/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Concatenating_Transformations/image/2.png)
+
 通过观察两种不同顺序的变换，我们不难发现，先平移会使物体远离坐标原点导致物体旋转绕原点旋转而不是绕自身旋转(旋转也会造成平移效果)，而先旋转或者缩放物体不会使物体出现这种副作用。
 
 所以我们对物体进行混合变换的顺序是 **先缩放  再旋转 最后再平移**
@@ -456,6 +460,6 @@ void main()
 ```
 
 ## 五、运行结果
-![image](E:/笔记/Opengl/Concatenating_Transformations/3.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Concatenating_Transformations/image/3.png)
 可以看到四面体在空间中大大小小飞来飞去，具体效果可以在渲染回调函数Render()里的Pipeline设置三个变换变量那里设置。
 
