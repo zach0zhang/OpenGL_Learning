@@ -3,7 +3,7 @@
 ## 归一化坐标
 我们在屏幕上绘制图形的时候，是在一个归一化的空间里，即为下图
 
-![image](E:\笔记\Opengl\First Triangle\1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/First_Triangle/image/1.png)
 
 可以看到绘制窗口左下角坐标为(-1.0,-1.0)到右上角坐标为(1.0,1.0)
 
@@ -112,4 +112,4 @@ glDrawArrays(GL_TRIANGLES, 0, 3);
 绘制几何图形的第一个参数变成了绘制三角形，定点数变为了3个
 
 ## 运行结果：
-![image](E:\笔记\Opengl\First Triangle\2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/First_Triangle/image/2.png)
