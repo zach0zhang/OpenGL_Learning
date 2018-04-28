@@ -4,7 +4,7 @@
 
 在《OpenGL Programming Guide 9th》讲解了渲染管线，下图即是OpenGL 4.5版本的管线：
 
-![image](E:/笔记/Opengl/shader/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Shader/image/2.png)
 
 - Vertex Data(顶点数据)：OpenGL将所有数据保存到缓存对象当中,正如上节当中的glVertexAttribPointer()函数所做的工作，并调用glDrawArrays()函数请求渲染几何图元
 - Vertex Shader(顶点着色器)：接受在顶点缓存对象中给出的顶点数据，独立处理每个顶点(对于绘制命令传输的每个顶点，OpenGL都会调用一个顶点着色器来处理顶点的相关数据)。**这个阶段是必须的**
@@ -13,7 +13,7 @@
 - Primitive Setup(图元装配)：之前着色阶段处理的都是顶点数据，此外，这些顶点构成几何图元的所有信息也会被传递到OpenGL当中。图元装配阶段将这些顶点与相关的几何图元之间组织起来，准备下一步的剪切和光栅化工作
 - Culling and Clipping(裁剪和剪切)：顶点可能落在视口之外(即我们能够绘制的窗口区域)，此时顶点相关的图元会做出改动，保证相关像素不会绘制在视口以外。**由OpenGL自动完成**
 - Rasterization(光栅化)：光栅化是判断某一部分几何体(点、线或者三角形)所覆盖的屏幕空间。因为屏幕是由一个个的像素点构成的，如果要画一条线，就要判断这条线在哪几个像素点表示，配合下图理解：
-![image](E:/笔记/Opengl/shader/3.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Shader/image/3.png)
 - Fragment Shader(片元着色器)：最后一个可以通过编程控制编程控制屏幕上显示颜色的阶段叫做片元着色阶段。这个阶段处理OpenGL光栅化之后生成的独立片元，使用着色器计算片元的最终颜色和它的的深度值。**这个阶段是必须的**
 
 ## 二、GLSL构建顶点着色器和片元着色器
@@ -286,7 +286,8 @@ CompilerShaders();
 main()函数里多了一个CompilerShaders()函数，这个函数是我们自定义的，用来完成着色器的编译工作
 
 **我们主要任务是创建GLSL着色器对象，编译和链接来生成可执行着色器程序。下图给出了具体过程**
-![image](E:/笔记/Opengl/shader/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Shader/image/4.png)
 
 ### 对于每个着色器对象，我们都需要进行以下步骤
 #### (1) 创建一个着色器对象
@@ -441,4 +442,4 @@ bool ReadFile(const char* pFileName, string &outFile)
 - 大概操作就是打开文件，之后一行一行读取源文件，并存储到字符串内
 
 ## 运行结果：
-![image](E:/笔记/Opengl/shader/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Shader/image/1.png)
