@@ -6,7 +6,7 @@
 ### 1.1 纹理映射简介
 我们之前的OpenGL学习一直停留在绘制一个彩色的四面体：
 
-![image](E:/笔记/Opengl/Texture/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/1.png)
 
 而现实世界物体的表面一般都呈现丰富特殊的颜色，并且在很小的图形上呈现多彩的变化，如果我们还是用计算机计算出一个个微小像素上的颜色再拼成特定的“图案”是非常辛苦的工作。
 
@@ -18,14 +18,18 @@ OpenGL支持不同类型的纹理：1D(一维)，2D(二维)，3D(三维)，CUBE(
 - 通过之前的学习，我们知道在在渲染管线中，我们会计算出每个要在屏幕上显示的像素点的颜色并显示出来。
 - 而我们拿到一张图片，并且要把它“贴”到我们的图形上去，我们要确定把我们图片上哪块部分贴到哪个像素点上
 - 所以我们要指定图片的“某一块”，这个时候就需要指定**纹理坐标**
-![image](E:/笔记/Opengl/Texture/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/2.png)
+
 上图显示了纹理坐标怎么定义，纹理坐标定义在**单位化的正方形内，并且以左下角为(0,0)**
 
     比如图片像素是480*320,纹理坐标是(0.5,0.5),则在图形中的坐标即为(240,160)
 - 当我们为顶点提供一些列的纹理坐标，在光栅化阶段，会对纹理坐标进行插值计算，计算出每个对应像素点需要的**纹素(纹理中的一个像素)**
 - 纹素中包含一个用于跟屏幕上像素点对应的颜色值，许许多多的纹素里的颜色值显示在我们屏幕上的不同像素上就显示出了我们要的纹理
 - 并且纹理坐标和我们绘制的图形的位置坐标对应，下图我们绘制了一个三角形，并用我们的纹理贴图里面的一块“贴”在我们的三角形上当图案，再进行缩放和旋转操作：
-![image](E:/笔记/Opengl/Texture/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/3.png)
+
 ### 1.3 使用纹理映射
 **使用纹理映射，需要遵循以下3个步骤**
 #### 1.3.1 创建一个纹理对象并加载纹理数据
@@ -42,7 +46,7 @@ glBindTexture(m_textureTarget, m_textureObj);
 
 然而我们的贴图在硬盘中存放，我们OpenGL应用程序无法直接从硬盘中加载纹理数据，所以需要我们先把硬盘中的贴图读取到内存里，再从内存中加载纹理数据，示意图如下：
 
-![image](E:/笔记/Opengl/Texture/4.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/4.png)
 
 ```
 unsigned char *data = stbi_load(m_fileName.c_str(),&width, &height, &nrChannels, 0);
@@ -221,7 +225,7 @@ glTexParameterf(m_textureTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 **邻近滤波相当于舍去小数，把(152.34,745.14)变为(152,745),线性滤波选择周围纹素2x2的4个坐标 ( (152,745), (153,745), (152,744) 和 (153,744) ) 并根据他们的颜色做线性插值**
 
 
-![image](E:/笔记/Opengl/Texture/5.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/5.png)
 
 纹理过滤可以指定放大和缩小操作，我们这里设置放大和缩小操作都是线性滤波方式
 
@@ -540,4 +544,4 @@ glFrontFace(GL_CW);	glCullFace(GL_BACK);	glEnable(GL_CULL_FACE);
 - glEnable(GL_CULL_FACE)用来开启剔除面
 
 ## 四、运行结果
-![image](E:/笔记/Opengl/Texture/6.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Texture/image/6.png)
