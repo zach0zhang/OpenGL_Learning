@@ -187,7 +187,9 @@ StepSize为步长，在文件开始时定义，也就是没按一下键移动距
 [OpenGL学习之路11----相机空间](https://blog.csdn.net/zach_z/article/details/80102219)
  
 另外进行补充，叉积不满足交换律,a * b和b * a得到的向量正好相反
-![image](E:/笔记/Opengl/Camera_Keyboard/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Keyboard/image/1.png)
+
 这里可以用右手定则来判断：张开右手，右手根部作为旋转中心，四指方向为叉积左向量，旋转到叉积右向量，大拇指方向即为叉积结构向量方向
 
 #### 这里很坑的地方来了：OpenGL是右手坐标系，而我们的相机空间是左手坐标系
@@ -195,7 +197,8 @@ StepSize为步长，在文件开始时定义，也就是没按一下键移动距
 **左手坐标系：伸开左手，大拇指指向X轴正方向，食指指向Y轴正方向，其他三个手指指向Z轴正方向。**
 
 **右手坐标系：伸开右手，大拇指指向X轴正方向，食指指向Y轴正方向，其他三个手指指向Z轴正方向。**
-![image](E:/笔记/Opengl/Camera_Keyboard/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Keyboard/image/4.png)
 
 **我们两个向量进行叉积后的结果是右手坐标系中的向量，而我们移动相机却是按照左手坐标系开始移动的，所以我们需要反着叉积。**
 
@@ -716,8 +719,12 @@ void main()
 ```
 ## 四、运行结果
 打开程序运行截图：
-![image](E:/笔记/Opengl/Camera_Keyboard/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Keyboard/image/2.png)
+
 按两下“上”键和两下“左”键
-![image](E:/笔记/Opengl/Camera_Keyboard/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Keyboard/image/3.png)
+
 可以看到相机向前移动，并且移动到了左边，因为我们移动相机而物体没动相机向左移，物体便向右移动
 

@@ -301,5 +301,5 @@ void main()
 
 ## 三、运行结果
 
-![image](E:/笔记/Opengl/Uniform Variables/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Uniform/image/1.png)
 可以看到三角形从大变小再由小变大，并且每一次从大变小会翻转位置，因为sinf(Scale)的值是-1到1之间变化

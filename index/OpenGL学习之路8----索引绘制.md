@@ -5,12 +5,13 @@
 
 正如下图，我们绘制一个三角形只需要指定三个顶点即可，但是如果绘制两个三角形组成的一个平行四边形就需要六个顶点，而且会有两个顶点相重叠：
 
-![image](E:/笔记/Opengl/Indexed Draws/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/index/image/1.png)
+
 可以看到顶点V2和V3在顶点缓冲区会出现两次，如果我们的图形更复杂一些呢？顶点重复的现象会更多
 
 如果我们引入一个索引缓冲例如下图：
 
-![image](E:/笔记/Opengl/Indexed Draws/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/index/image/2.png)
 
 顶点缓冲区内只放四个顶点，而我们用六个索引就可以表示出按照V1V2V3V4V2V3顺序绘制图形
 
@@ -414,7 +415,8 @@ void main()
 都没有变化，因为这节只是添加索引绘制相关代码，着色器代码跟上一节相同
 
 ## 三、运行结果
-![image](E:/笔记/Opengl/Indexed Draws/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/index/image/3.png)
 
 可以看到颜色渐变的三棱锥，围绕着y轴进行旋转，如果不理解为何颜色渐变或者旋转请移步教程：
 

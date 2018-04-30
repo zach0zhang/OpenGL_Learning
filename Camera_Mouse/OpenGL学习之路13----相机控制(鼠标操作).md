@@ -16,12 +16,12 @@
 ## 一、背景知识
 ### 1.1 水平倾角和垂直倾角
 小时候玩过的一款经典游戏《抢滩登陆战》，我们无法移动，但是可以通过鼠标控制我们的攻击方向，正如下图中的炮：
-![image](E:/笔记/Opengl/Camera_Mouse/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/1.png)
 - 假设它在我们的世界坐标中，它可以绕向量(0,1,0)旋转360°，旋转角度称为“水平倾角”，这个(0,1,0)向量叫做垂直轴线(比如转到身后去打背后的敌人)
 - 也可以上下倾斜旋转，绕着与地面平行的向量，这个倾角叫做“垂直倾角”，这个向量叫做“水平轴线”
 ### 1.2 水平倾角计算target向量
 我们从y轴竖直向下看y轴负方向：
-![image](E:/笔记/Opengl/Camera_Mouse/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/2.png)
 可以看到根据水平倾角α可以计算target(目标方向向量)
 
 ```
@@ -41,7 +41,7 @@ target.z = sinα
 
 万向锁的概念很好理解：
 - 如果你手上有手机，请将手机水平平放置,如下图所示：
-![image](E:/笔记/Opengl/Camera_Mouse/3.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/3.png)
 - 此时给绕Z轴转一个角度，**可以发现X轴和Y轴随着手机绕Z轴转动而改变了**，再绕Y轴旋转一个角度，再绕X轴旋转一个角度，我们就可以到让手机指向三维空间任意一个方向
 - **但是如果绕Z轴旋转一定角度后，在绕Y轴旋转的时候不小心旋转了90°，这时候怎么绕X轴手机都不会立起来，好像被锁在了桌面上**
 - 然而绕y轴如果不等于90°，就可以使手机旋转指向三维空间任意一个方向
@@ -69,7 +69,7 @@ V向量旋转a度，得到的W向量方法为：
 ```math
 W = QVQ^{-1}
 ```
-![image](E:/笔记/Opengl/Camera_Mouse/4.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/4.png)
 
 ### 1.5 一个向量绕另一个向量旋转的代码表示
 ```
@@ -229,12 +229,16 @@ void Camera::Init()
 }
 ```
 - 可以看到根据target向量的x和z分量来确定m_AngleH(水平倾角)
-![image](E:/笔记/Opengl/Camera_Mouse/5.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/5.png)
+
 对z分量反sin之后就可以得到α角，但是我们四元数控制的是顺时针旋转，所以**可以根据target向量的x和z分量的正负来确定是在第几象限**，再判断最终的水平倾角
 
     例如上图，计算出阿尔法角度后，因为x和z都为正所以是第一向量，所以用360°-α得到最终角度
 - 我们规定垂直倾角最大为90°，可以通过target的y分量来得到m_AngleV(垂直倾角)
-![image](E:/笔记/Opengl/Camera_Mouse/6.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/6.png)
+
 可以得出垂直倾角即为对y分量反sin后得到的角度再取负(因为四元数旋转是顺时针)
 - 同时初始化的时候设置了其他相机类内新加的私有变量的值
 ```
@@ -415,5 +419,5 @@ static void Render()
 一开始Render就调用相机类的方法OnRender(),用来处理到达边缘事件时相机的旋转操作。
 
 ## 四、运行结果
-![image](E:/笔记/Opengl/Camera_Mouse/7.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Camera_Mouse/image/7.png)
 可以通过鼠标调整相机的位置，到达左右边缘后继续旋转水平倾角，可以水平旋转360°回到原点

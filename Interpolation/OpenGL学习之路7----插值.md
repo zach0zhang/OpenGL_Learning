@@ -351,6 +351,6 @@ void main()
 - FragColor=Color把这个颜色变量直接传递下去
 
 ## 三、运行结果
-![image](E:/笔记/Opengl/Interpolation/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Interpolation/image/1.png)
 
 可以看到三角形根据位置不同呈现不同的颜色，并且不断的缩放放大
