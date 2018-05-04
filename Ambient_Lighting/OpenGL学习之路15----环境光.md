@@ -12,7 +12,8 @@
 - 强度：即光强，强度越大亮度也就越大
 
 **环境光的计算：**
-![image](E:/笔记/Opengl/Ambient_Lighting/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Ambient_Lighting/image/1.png)
+
 
 **我们用一个结构体来包括表示环境光的两个属性：**
 ```
@@ -90,5 +91,5 @@ void main()
 }
 ```
 ## 运行结果
-![image](E:/笔记/Opengl/Ambient_Lighting/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Ambient_Lighting/image/2.png)
 可以看到四面体由暗到亮
