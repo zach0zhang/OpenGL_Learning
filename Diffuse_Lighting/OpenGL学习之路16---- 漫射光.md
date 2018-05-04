@@ -11,10 +11,13 @@
 漫射光的强度，与光线入射的角度有关，如果光线垂直物体，则漫射光强最大，随着入射光线与法线夹角的增大，慢射光强逐渐减小
 
 如图所示，随着当α为0°时，即垂直照射到物体表面，和法线成180°，漫射光强最大；而随着α增大，漫射光强逐渐减小：
-![image](E:/笔记/Opengl/Diffuse_Lighting/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Diffuse_Lighting/image/1.png)
 
 计算光的强度，使用光线和物体表面法线的夹角α的余弦值作为一个参数，下图中表示了四个不同角度照射到表面上的情况：
-![image](E:/笔记/Opengl/Diffuse_Lighting/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Diffuse_Lighting/image/2.png)
+
 - A的强度是最大的，因为α为0，余弦值最大为1
 - B的强度是，cos(α)
 - C从表面的一侧入射，此时光线和法线垂直，所以α角度为90，余弦值为0，即光线C对表面照亮没有任何效果
@@ -43,7 +46,8 @@ struct DirectionalLight
 我们在顶点着色器中根据顶点法线顶点计算出在世界空间里每个点的法向量的值，并传递到片元着色器中计算出每个像素法向量对应的光照强度
 
 如下图，左边是两个平面各自的法向量，而右边是由顶点法线计算后得到每个点的法向量的样子：
-![image](E:/笔记/Opengl/Diffuse_Lighting/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Diffuse_Lighting/image/3.png)
 
 计算顶点法线的代码：
 
@@ -279,4 +283,5 @@ static void Keyboard(int key, int i, int y)
 - F4键：减小漫反射光强
 
 通过按键控制可以体验效果
-![image](E:/笔记/Opengl/Diffuse_Lighting/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Diffuse_Lighting/image/4.png)
