@@ -13,7 +13,7 @@
 
 观察下图：
 
-![image](E:/笔记/Opengl/Specular_Lighting/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/1.png)
 
 - I：入射光
 - N：表面法向量
@@ -24,7 +24,9 @@
 由图可知当α(即反射光和观察视线的夹角)为0时，反射光的强度最大；随着α的角度不断增大，反射光的强度逐渐减小，当α为90°(即反射光和观察者视线垂直)时，感受不到反射光。
 
 引入α的余弦值，正好可以表示这种关系：
-![image](E:/笔记/Opengl/Specular_Lighting/2.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/2.png)
+
 - 当α为0°时，α的余弦值为1，此时反射光强最大
 - 随着α值逐渐增大，余弦值逐渐减小
 - α为90°时，余弦值为0，继续增大值为负数则判定光强也为0
@@ -36,7 +38,9 @@
 **计算观察视线V：** 可以通过相机位置与入射点位置的差得到。(单位化)
 
 **计算反射光R：**
-![image](E:/笔记/Opengl/Specular_Lighting/3.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/3.png)
+
 根据图中所示，我们可以引入一个向量W来计算反射光R：
 ```
 R = I + W
@@ -53,7 +57,9 @@ R = I + 2 * N * (-N · I)
 GLSL中提供了一个内部函数reflect()，用来做上述运算，即求一个向量经过法线堆成后的反射向量
 
 **镜面反射的最终公式：**
-![image](E:/笔记/Opengl/Specular_Lighting/4.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/4.png)
+
 - 将光的颜色与物体表面颜色相乘
 - M：代表材料的镜面反射强度，这是由材料的物理特性决定的(比如木头就为0，金属的话这个值就大)
 - p：镜面发光参数，用来增强反射光区域边缘强度，这个值也是材料物体特性决定的
@@ -214,9 +220,11 @@ FragColor = texture2D(gSampler, TexCoord0.xy) * (AmbientColor + DiffuseColor + S
 在之前调环境光和漫射光的基础上，增加了调镜面反射强度和镜面发光参数的按键，来观察变化
 
 光从(1,0,0)入射时：
-![image](E:/笔记/Opengl/Specular_Lighting/5.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/5.png)
 
 光从(1,1,0)入射时：
-![image](E:/笔记/Opengl/Specular_Lighting/6.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Specular_lighting/image/6.png)
 
 并且也可以通过调整镜面发光参数可以看出来，镜面发光参数越大，反射的面积集中，镜面发光参数越小，反射的光越发散
