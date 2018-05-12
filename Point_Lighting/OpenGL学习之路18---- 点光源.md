@@ -15,9 +15,9 @@
 
 **点光源的衰减：**
 光线强度离光源的距离平方成反比，数学原理公式如下：
-![image](E:/笔记/Opengl/Point_Lighting/1.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Point_Lighting/image/1.png)
 我们可以根据这个公式来计算点光源的亮度，但是在3D图形中，这样的效果并不是很好。如果距离很近时，光强便接近无限大，所以将公式进行微整：
-![image](E:/笔记/Opengl/Point_Lighting/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Point_Lighting/image/2.png)
 - 分母上添加了三个衰减参数：一个常量参数、一个线性参数和一个指数参数
 - 当常量参数设为1，此时就算距离很小，也不会产生无限大的光强，起到滤波的作用，过滤掉不正常数据
 - 线性参数用来控制缓慢的衰减效果
@@ -416,4 +416,4 @@ vec4 CalcPointLight(int Index, vec3 Normal)
 
 
 ## 运行结果
-
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Point_Lighting/image/3.png)
