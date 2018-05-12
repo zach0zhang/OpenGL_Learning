@@ -4,7 +4,9 @@
 聚光灯光源是结合了平行光方向的特性和点光源随距离衰减的特性，并且离光源越远，照亮圆形区域越大，即光源呈锥形。 在现实中一个例子为手电筒。
 
 如图所示，即为聚光灯光源的锥形效果：
-![image](E:/笔记/Opengl/Spot_Lighting/1.png)
+
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Spot_Lighting/image/1.png)
+
 - L为光源方向
 - 我们只想让光源照亮红色夹角之间的区域，即2α的角度
 - V为光源到某个像素的向量
@@ -16,7 +18,7 @@
 聚光灯光源从照亮区域的中心向边缘慢慢衰减，如果L和V向量重合时，夹角为0，点积(夹角余弦值)为1，随着夹角增大，余弦值减小。但是夹角从0到一个比较小的角，余弦值变化很缓慢，衰减不明显。
 
 比如聚光灯夹角为20°，余弦值为0.939，[0.939，1]这个变化范围太小，不好作为衰减参数，应该使得衰减参数范围为[0,1]，所以把余弦值范围映射到[0,1]方法如下：
-![image](E:/笔记/Opengl/Spot_Lighting/2.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Spot_Lighting/image/2.png)
 
 计算原理即为：使用大范围——[0,1],和小范围——[cosα，1]的比例——(1-0)/(1-cosα)=d
 
@@ -186,5 +188,5 @@ void main()
 }
 ```
 ## 运行结果
-![image](E:/笔记/Opengl/Spot_Lighting/3.png)
+![image](https://github.com/zach0zhang/OpenGL_Learning/blob/master/Spot_Lighting/image/3.png)
 可以看到一个正中心的聚光灯光源照射和一个随着相机移动而移动的聚光灯光源
